@@ -5,23 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>people</title>
-    <!--<link rel="stylesheet" href="./style.css">-->
-    <!--<link rel="icon" href="./favicon.ico" type="image/x-icon">-->
+    <style>
+      html {
+        scroll-behavior: smooth;
+        padding: 80px;
+      }
+      * {
+        font-family: "Georgia", "Times New Roman", Times, serif;
+      }
+      /* Align header elements with flexbox */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 32px;
+      }
+
+      .header .title {
+        text-align: center;
+      }
+
+      .header > .other {
+        text-align:right;
+      }
+      .header nav a {
+        margin: 0 8px;
+      }
+      .people > div > h1 {
+        font-size:128px;
+      }
+
+      /* Styling people sections */
+      .people > div {
+        text-align: center;
+        margin-top: 32px;
+      }
+      hr {
+        margin:32px;
+      }
+      @keyframes anim1 {
+        0%, 100% { color: black; }
+        50% { color: gold; }
+      }
+      .gold {
+        animation: anim1 3s infinite;
+      }
+
+      /*thx chatgpt*/
+      .fixed-element {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixes the element at the bottom */
+            left: 0; /* Aligns to the left */
+            bottom: 0; /* Sticks to the bottom of the viewport */
+            width: 100%; /* Full width */
+            padding: 20px;
+            background-color: lightblue;
+            border-top: 1px solid #007bff;
+            text-align: center; /* Center the text */
+            z-index: 1000; /* Ensure it's above other content */
+            transition: display 0.5s ease-in-out; /* Optional: for smooth transitions */
+        }
+
+        .fixed-element > * {
+            display: inline-block;
+        }
+
+        .show {
+            display: block; /* Show the element */
+        }
+    </style>
   </head>
   <body>
     <main>
-      <h1><b><i>people</i></b>.seancajig.al</h1>
-      <p>Aidan P. - <q>冰淇淋</q></p>
-      <p>Ben B. - <q>muy tonto</q></p>
-      <p>Stephen "Blake" D. - Founder of the Seanasaurus name and Co-founder of the parmeSean and Seanathon name.</p> 
-      <p>Chase "Michael" - <q>我爱你妈妈！</q></p>
-      <p>Hanlin L. - <q>I am a menace</q></p>
-      <p>...</p>
-      <p><b>Find me IRL to get added to the list!</b></p>
-      <br/><br/><br/><br/>
+      <div class="header">
+        <div class="title">
+          <h1><b><i>people</i></b>.seancajig.al</h1>
+          <nav>
+            <a href="#A">A</a>
+            <a href="#B">B</a>
+            <a href="#C">C</a>
+            <a href="#D">D</a>
+            <a href="#E">E</a>
+            <a href="#F">F</a>
+            <a href="#G">G</a>
+            <a href="#H">H</a>
+            <a href="#I">I</a>
+            <a href="#J">J</a>
+            <a href="#K">K</a>
+            <a href="#L">L</a>
+            <a href="#M">M</a>
+            <a href="#N">N</a>
+            <a href="#O">O</a>
+            <a href="#P">P</a>
+            <a href="#Q">Q</a>
+            <a href="#R">R</a>
+            <a href="#S">S</a>
+            <a href="#T">T</a>
+            <a href="#U">U</a>
+            <a href="#V">V</a>
+            <a href="#W">W</a>
+            <a href="#X">X</a>
+            <a href="#Y">Y</a>
+            <a href="#Z">Z</a>
+          </nav>
+        </div>
+        <div class="other">
+          <p>Last Updated: 2024-10-14</p>
+          <a href="https://github.com/parmeseancheez/people">Github</a>
+        </div>
+      </div>
       <hr/>
-      <p>Last Updated: 2024-3-29</p>
-      
+      <div class="people">
+        <div id="A">
+          <h1>A</h1>
+          <p>Aidan P. - <q>冰淇淋</q></p>
+        </div>
+        <div id="B">
+          <h1>B</h1>
+          <p>Ben B. - <q>muy tonto.</q></p>
+        </div>
+        <div id="C">
+          <h1>C</h1>
+          <p>Chase "Michael" - <q>我爱你妈妈！</q></p>
+        </div>
+        <div id="H">
+          <h1>H</h1>
+          <p>Hanlin L. - <q>I am a menace.</q></p>
+        </div>
+        <div id="S">
+          <h1>S</h1>
+          <p class="gold">Sean C. - Me</p>
+          <p>Stephen "Blake" D. - Seanasaurus / ParmeSean / Seanathon</p>
+        </div>
+        <hr/>
+        
+       <div class="fixed-element"><a href="#A">A</a>
+            <a href="#B">B</a>
+            <a href="#C">C</a>
+            <a href="#D">D</a>
+            <a href="#E">E</a>
+            <a href="#F">F</a>
+            <a href="#G">G</a>
+            <a href="#H">H</a>
+            <a href="#I">I</a>
+            <a href="#J">J</a>
+            <a href="#K">K</a>
+            <a href="#L">L</a>
+            <a href="#M">M</a>
+            <a href="#N">N</a>
+            <a href="#O">O</a>
+            <a href="#P">P</a>
+            <a href="#Q">Q</a>
+            <a href="#R">R</a>
+            <a href="#S">S</a>
+            <a href="#T">T</a>
+            <a href="#U">U</a>
+            <a href="#V">V</a>
+            <a href="#W">W</a>
+            <a href="#X">X</a>
+            <a href="#Y">Y</a>
+            <a href="#Z">Z</a></div>
+
+      <script>
+        const fixedElement = document.querySelector('.fixed-element');
+        const showAfterScroll = 300; // Change this value to set the scroll distance
+
+        // Listen for scroll events
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > showAfterScroll) {
+                fixedElement.classList.add('show'); // Show the element
+            } else {
+                fixedElement.classList.remove('show'); // Hide the element
+            }
+        });
+      </script>
+      </div>
     </main>
   </body>
 </html>
