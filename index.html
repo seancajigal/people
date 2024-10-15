@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>people</title>
+    <title>People</title>
     <style>
         html {
-            margin: 0; /* Remove default margin */
-            height: 100%; /* Ensure full height */
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            margin: 0;
+            height: 100%;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         body {
-            margin: 0; /* Remove default margin */
+            margin: 0;
+            padding: 0;
         }
 
         * {
+            box-sizing: border-box;
             font-family: "Georgia", "Times New Roman", Times, serif;
         }
 
-        /* Header and main styling */
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
-            padding: 0 32px;
-            position: relative; /* Required for proper alignment */
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.8);
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+            top: 0;
+            backdrop-filter: blur(8px);
+            padding: 32px;
+            padding-bottom: 64px;
         }
 
         .header .title {
@@ -40,20 +48,24 @@
         }
 
         .header nav a {
-            margin: 0 8px; /* Margin between links */
+            margin: 4px;
         }
 
-        .people > div > h1 {
-            font-size: 128px;
+        .people {
+            margin-top: 0;
+            transition: margin-top 0.3s;
         }
 
         .people > div {
             text-align: center;
-            margin-top: 32px;
+            padding: 64px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
-        hr {
-            margin: 32px;
+        .people > div > h1 {
+            font-size: 128px;
         }
 
         @keyframes anim1 {
@@ -62,15 +74,10 @@
         }
 
         .gold {
-            animation: anim1 3s infinite; /* Keep the gold flashing text animation */
-        }
-
-        main {
-            padding: 20px; /* Add padding to main content */
+            animation: anim1 3s infinite;
         }
     </style>
 </head>
-
 <body>
     <main>
         <div class="header">
@@ -110,7 +117,6 @@
                 <a href="https://github.com/parmeseancheez/people">Github</a>
             </div>
         </div>
-        <hr/>
         <div class="people">
             <div id="A">
                 <h1>A</h1>
@@ -136,6 +142,27 @@
             <hr/>
         </div>
     </main>
-</body>
 
+    <script>
+        // Adjust margin-top for content based on header height
+        window.onload = window.onresize = function() {
+            const header = document.querySelector('.header');
+            const people = document.querySelector('.people');
+            people.style.marginTop = `${header.offsetHeight}px`;
+        };
+
+        // Smooth scroll with offset adjustment
+        document.querySelectorAll('.header nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const headerHeight = document.querySelector('.header').offsetHeight;
+
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
 </html>
