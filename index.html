@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             margin: 0; /* Remove default margin */
             height: 100%; /* Ensure full height */
             overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -45,7 +47,6 @@
             font-size: 128px;
         }
 
-        /* Styling people sections */
         .people > div {
             text-align: center;
             margin-top: 32px;
@@ -53,39 +54,6 @@
 
         hr {
             margin: 32px;
-        }
-
-        /* Fixed element styling (renamed to scrolling-nav) */
-        .scrolling-nav {
-            display: none; /* Initially hidden */
-            position: fixed; /* Fixes the element */
-            top: 0; /* Stick to the top of the viewport */
-            left: 0; /* Align to the left */
-            width: 100%; /* Full width */
-            padding: 10px 0; /* Vertical padding */
-            background-color: white; /* Background color */
-            border-bottom: 1px solid black; /* Bottom border */
-            text-align: center; /* Center text */
-            z-index: 1000; /* Ensure it's above other content */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-        }
-
-        .show {
-            display: flex; /* Use flexbox to align items */
-            justify-content: center; /* Center links horizontally */
-        }
-
-        .scrolling-nav a {
-            margin: 0 5px; /* Space between links */
-            font-size: 14px; /* Set font size for easy readability */
-            padding: 8px 12px; /* Padding for clickable area */
-            text-decoration: none; /* Remove underline */
-            color: black; /* Link color */
-            transition: background-color 0.3s; /* Smooth hover transition */
-        }
-
-        .scrolling-nav a:hover {
-            background-color: #f0f0f0; /* Highlight on hover for better UX */
         }
 
         @keyframes anim1 {
@@ -102,35 +70,8 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="scrolling-nav">
-        <a href="#A">A</a>
-        <a href="#B">B</a>
-        <a href="#C">C</a>
-        <a href="#D">D</a>
-        <a href="#E">E</a>
-        <a href="#F">F</a>
-        <a href="#G">G</a>
-        <a href="#H">H</a>
-        <a href="#I">I</a>
-        <a href="#J">J</a>
-        <a href="#K">K</a>
-        <a href="#L">L</a>
-        <a href="#M">M</a>
-        <a href="#N">N</a>
-        <a href="#O">O</a>
-        <a href="#P">P</a>
-        <a href="#Q">Q</a>
-        <a href="#R">R</a>
-        <a href="#S">S</a>
-        <a href="#T">T</a>
-        <a href="#U">U</a>
-        <a href="#V">V</a>
-        <a href="#W">W</a>
-        <a href="#X">X</a>
-        <a href="#Y">Y</a>
-        <a href="#Z">Z</a>
-    </div>
     <main>
         <div class="header">
             <div class="title">
@@ -194,59 +135,7 @@
             </div>
             <hr/>
         </div>
-        <script>
-            const scrollingNav = document.querySelector('.scrolling-nav');
-            const showAfterScroll = 152; // Set to 0 to show immediately
-
-            // Listen for scroll events
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > showAfterScroll) {
-                    scrollingNav.classList.add('show'); // Show the element
-                } else {
-                    scrollingNav.classList.remove('show'); // Hide the element
-                }
-            });
-
-            // Smooth scroll for scrolling-nav links
-            document.querySelectorAll('.scrolling-nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault(); // Prevent default anchor click behavior
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    // Calculate the offset position
-                    const navHeight = scrollingNav.offsetHeight; // Get the height of the navigation bar
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight; // Adjust the scroll position
-
-                    // Smooth scroll to the target position
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Smooth scroll for nav links
-            document.querySelectorAll('.header nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault(); // Prevent default anchor click behavior
-
-
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    // Calculate the offset position
-                    const navHeight = scrollingNav.offsetHeight; // Get the height of the navigation bar
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight; // Adjust the scroll position
-
-                    // Smooth scroll to the target position
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        </script>
     </main>
 </body>
+
 </html>
